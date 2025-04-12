@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Brain, Puzzle, ImageIcon, Music, ArrowRight, Clock } from "lucide-react"
+import path from "path"
 
 export function TherapyActivities() {
   // Mock data for therapy activities
@@ -16,6 +17,7 @@ export function TherapyActivities() {
       progress: 75,
       category: "Memory",
       duration: "10 min",
+      path: "/games/memorymatching",
     },
     {
       id: "2",
@@ -25,6 +27,7 @@ export function TherapyActivities() {
       progress: 40,
       category: "Language",
       duration: "15 min",
+      path: "/games/wordpuzzle"
     },
     {
       id: "3",
@@ -33,6 +36,7 @@ export function TherapyActivities() {
       icon: ImageIcon,
       progress: 90,
       category: "Visual",
+      path: "/games/visualrecogination",
       duration: "8 min",
     },
     {
@@ -73,11 +77,12 @@ export function TherapyActivities() {
               </div>
             </div>
           </div>
-          <Link href={`/patient/activities/${activity.id}`}>
-            <Button variant="ghost" size="icon">
-              <ArrowRight className="h-4 w-4" />
-            </Button>
-          </Link>
+          <Link href={activity.path || `/patient/activities/${activity.id}`}>
+  <Button variant="ghost" size="icon">
+    <ArrowRight className="h-4 w-4" />
+  </Button>
+</Link>
+
         </div>
       ))}
     </div>

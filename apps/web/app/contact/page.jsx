@@ -16,11 +16,11 @@ export default function ContactPage() {
           </div>
           <div className="flex items-center gap-4 bg-white p-4 rounded-xl shadow hover:scale-105 transition-transform">
             <Phone className="text-blue-500 h-6 w-6" />
-            <span className="text-md">+91-9876543210</span>
+            <span className="text-md">+91-7683078170</span>
           </div>
           <div className="flex items-center gap-4 bg-white p-4 rounded-xl shadow hover:scale-105 transition-transform">
             <MapPin className="text-blue-500 h-6 w-6" />
-            <span className="text-md">21st Floor, HealthTech Tower, Bengaluru, India</span>
+            <span className="text-md">6th Floor , ABESIT Ghaziabad 201001</span>
           </div>
         </div>
       </div>

@@ -83,7 +83,7 @@ export function DoctorLayout({ children }) {
     },
   ]
 
-  // Show loading state or redirect if not authenticated
+  
   if (isLoading || !user || userData?.role !== "doctor") {
     return <div className="flex items-center justify-center min-h-screen">Loading...</div>
   }

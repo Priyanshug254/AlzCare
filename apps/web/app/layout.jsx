@@ -6,7 +6,7 @@ import "./globals.css"
 import Footer, { LandingFooter } from "@/components/landing-footer"
 import Navbar, { LandingNavbar } from "@/components/landing-navbar"
 
-
+import ChatbotIcon from '@/components/ChatbotIcon';
 
 
 const inter = Inter({ subsets: ["latin"] })
@@ -29,6 +29,7 @@ export default function RootLayout({ children }) {
           </AuthProvider>
         </ThemeProvider>
         <LandingFooter/>
+        <ChatbotIcon />
       </body>
     </html>
   )

@@ -1,4 +1,9 @@
 "use client"
+
+import { useEffect, useState } from "react"
+import { collection, getDocs } from "firebase/firestore"
+import { db } from "@/lib/firebase"
+
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -13,49 +18,26 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 export function PatientList() {
-  // Mock data for patients
-  const patients = [
-    {
-      id: "1",
-      name: "Eleanor Davis",
-      age: 72,
-      therapyLevel: "Moderate",
-      lastActivity: "2 hours ago",
-      status: "active",
-    },
-    {
-      id: "2",
-      name: "Robert Johnson",
-      age: 68,
-      therapyLevel: "Mild",
-      lastActivity: "1 day ago",
-      status: "active",
-    },
-    {
-      id: "3",
-      name: "Maria Garcia",
-      age: 75,
-      therapyLevel: "Advanced",
-      lastActivity: "3 days ago",
-      status: "inactive",
-    },
-    {
-      id: "4",
-      name: "James Wilson",
-      age: 70,
-      therapyLevel: "Moderate",
-      lastActivity: "5 hours ago",
-      status: "active",
-    },
-    {
-      id: "5",
-      name: "Patricia Brown",
-      age: 65,
-      therapyLevel: "Mild",
-      lastActivity: "2 days ago",
-      status: "inactive",
-    },
-  ]
+  const [patients, setPatients] = useState([])
+
+  useEffect(() => {
+    const fetchPatients = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "users"))
+        const patientData = querySnapshot.docs
+          .filter((doc) => doc.data().role === "patient") // only fetch patients
+          .map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }))
+        setPatients(patientData)
+      } catch (error) {
+        console.error("Error fetching patients:", error)
+      }
+    }
+
+    fetchPatients()
+  }, [])
 
   return (
     <div className="rounded-md border">
@@ -73,10 +55,10 @@ export function PatientList() {
         <TableBody>
           {patients.map((patient) => (
             <TableRow key={patient.id}>
-              <TableCell className="font-medium">{patient.name}</TableCell>
-              <TableCell>{patient.age}</TableCell>
-              <TableCell>{patient.therapyLevel}</TableCell>
-              <TableCell>{patient.lastActivity}</TableCell>
+              <TableCell className="font-medium">{patient.displayName || "Unnamed"}</TableCell>
+              <TableCell>{patient.age || "-"}</TableCell>
+              <TableCell>{patient.therapyLevel || "N/A"}</TableCell>
+              <TableCell>{patient.lastActivity || "N/A"}</TableCell>
               <TableCell>
                 <Badge variant={patient.status === "active" ? "default" : "secondary"}>
                   {patient.status === "active" ? "Active" : "Inactive"}
@@ -115,4 +97,3 @@ export function PatientList() {
     </div>
   )
 }
-

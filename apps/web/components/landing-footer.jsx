@@ -28,11 +28,7 @@ export function LandingFooter() {
                   Pricing
                 </Link>
               </li>
-              <li>
-                <Link href="/testimonials" className="text-muted-foreground hover:text-foreground">
-                  Testimonials
-                </Link>
-              </li>
+              
               <li>
                 <Link href="/faq" className="text-muted-foreground hover:text-foreground">
                   FAQ
@@ -48,16 +44,8 @@ export function LandingFooter() {
                   About
                 </Link>
               </li>
-              <li>
-                <Link href="/blog" className="text-muted-foreground hover:text-foreground">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link href="/careers" className="text-muted-foreground hover:text-foreground">
-                  Careers
-                </Link>
-              </li>
+              
+              
               <li>
                 <Link href="/contact" className="text-muted-foreground hover:text-foreground">
                   Contact
@@ -78,16 +66,8 @@ export function LandingFooter() {
                   Terms of Service
                 </Link>
               </li>
-              <li>
-                <Link href="/cookies" className="text-muted-foreground hover:text-foreground">
-                  Cookie Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/compliance" className="text-muted-foreground hover:text-foreground">
-                  HIPAA Compliance
-                </Link>
-              </li>
+              
+              
             </ul>
           </div>
         </div>

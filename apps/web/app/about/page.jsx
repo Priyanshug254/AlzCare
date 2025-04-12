@@ -4,6 +4,8 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, Info } from "lucide-react";
 
+
+
 export default function AboutPage() {
   const router = useRouter();
 

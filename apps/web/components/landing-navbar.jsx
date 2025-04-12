@@ -17,6 +17,9 @@ export function LandingNavbar() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
+          <Link href="/" className="text-sm font-medium hover:text-primary">
+          Home
+          </Link>
           <Link href="/about" className="text-sm font-medium hover:text-primary">
             About
           </Link>
@@ -29,6 +32,7 @@ export function LandingNavbar() {
           <Link href="/contact" className="text-sm font-medium hover:text-primary">
             Contact
           </Link>
+          
         </nav>
 
         <div className="hidden md:flex items-center gap-4">

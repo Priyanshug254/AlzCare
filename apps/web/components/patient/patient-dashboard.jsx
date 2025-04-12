@@ -1,5 +1,5 @@
 "use client"
-
+import ChatbotUI from "@/components/ChatbotUI"
 import { useState } from "react"
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
@@ -24,9 +24,17 @@ export function PatientDashboard() {
   return (
     <div className="space-y-6">
       <div className="flex flex-col space-y-2">
-        <h2 className="text-3xl font-bold tracking-tight">Welcome back, {user.name}</h2>
-        <p className="text-muted-foreground">Here's an overview of your therapy progress and upcoming activities.</p>
-      </div>
+  <h2 className="text-3xl font-bold tracking-tight">Welcome back, {user.name}</h2>
+  <p className="text-muted-foreground">Here's an overview of your therapy progress and upcoming activities.</p>
+  
+  {/* Add the ML Model button here */}
+  <Link href="/ml_model">
+    <Button variant="outline" className="w-full mt-4 bg-blue-600 text-white">
+      Go to ML Model
+      <ArrowRight className="ml-2 h-4 w-4" />
+    </Button>
+  </Link>
+</div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
@@ -147,6 +155,7 @@ export function PatientDashboard() {
           </CardContent>
         </Card>
       )}
+      <ChatbotUI/>
     </div>
   )
 }
